@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Meadowlark Travel</title>
+</head>
+
+<body>
+    <header>
+    </header>
+    <fieldset>
+        <legend>益起学</legend>
+        <form action="http://localhost:3000/about" method="POST">
+            <input type="hidden" name="hush" val="hidden, but not secret!">
+            <p>
+                <label for="usename">用户名: </label>
+                <input type="text" id="usename" name="usename">
+            </p>
+            <p>
+                <label for="password">密码: </label>
+                <input type="password" id="password" name="password">
+            </p>
+            <p>
+                <button type="submit" id="login_submit">登录</button>
+                <button type="submit" id="register_submit">注册</button>
+            </p>
+        </form>
+    </fieldset>
+    <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript">
+        $("#login_submit").click(function () {
+            var username = $('#username').val();
+            var password = $('#password').val();
+            //这里实现对 username和password格式的判断
+            //........
+
+            //发送ajax请求 使用post方式发送json字符串给后台login
+            $.ajax({
+                type: "post",
+                url: "http://localhost:3000/process",
+                dataType: "json",
+                data: {
+                    username: username,
+                    password: password
+                },
+                success: function (data) {
+                    //接受返回的数据，前端判断采取的动作
+                    /* if (data) {
+                        if (data.message == "false") {
+                            alert('密码错误，请重新输入');
+                            //window.location.href="./front_end/login";
+                        } else { */
+                    alert('登陆成功');
+                    //window.location.href = "http://localhost:3000/about";//会报404错误。
+                    window.open("http://localhost:3000/about");//推荐使用open，是窗口的打开方式。而上面是仅改变窗口地址。
+                    //return false;
+                    //window.event.returnValue = false;
+                    //}
+                    //}
+                    return true;
+                },
+                error: function (data) {
+                    alert('密码错误，请重新输入');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

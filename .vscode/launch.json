@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach",
+            "port": 9229
+        },
+        {
+            "name": "Launch",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/index.js",
+            //这个配置成你要调试的文件"stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceRoot}/.",
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "preLaunchTask": "",
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceRoot}/index.js"
+            ]
+        }
+    ]
+}

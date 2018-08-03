@@ -3,6 +3,7 @@
 
 <head>
     <title>Meadowlark Travel</title>
+    {{{_sections.head}}}
 </head>
 
 <body>
@@ -10,6 +11,11 @@
 		<img src="/img/logo.png" style="width:150px" alt="Meadowlark Travel Logo">  <!--transform:scale(0.3)-->
 	</header>
     {{{body}}}
+    <p>weather:</p>
+    {{> weather}}
+    <p>jquery:</p>
+    <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+	{{{_sections.jquery}}}
 </body>
 
 </html>
